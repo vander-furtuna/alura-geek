@@ -1,0 +1,264 @@
+:root {
+  --primary: #5300c8;
+  --secondary: #03318c;
+  --error: #f44336;
+  --light: white;
+  --dark: black;
+  --primary-background: var(--primary);
+  --background: var(--light);
+  --title: var(--dark);
+  --input-border: 3px solid var(--secondary);
+  --input-border-error: 3px solid var(--error);
+  --input-text: var(--secondary);
+  --input-text-error: var(--error);
+  --input-placeholder: var(--secondary);
+  --button-background: var(--secondary);
+  --button-color: var(--light);
+  --button-color-primary: var(--primary);
+  --button-boder: 3px solid var(--secondary);
+  --card-background: var(--primary);
+  --card-border: 3px solid var(--dark);
+  --card-color: var(--light);
+}
+
+* {
+  font-family: "IBM Plex Mono", monospace;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.5rem;
+  max-width: 20rem;
+  text-align: center;
+}
+
+header {
+  background-color: var(--primary-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem;
+}
+header img {
+  height: 3.5rem;
+}
+
+#container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  padding: 6rem 2rem;
+}
+@media screen and (max-width: 1000px) {
+  #container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+#container #products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45rem;
+  gap: 2rem;
+}
+@media screen and (max-width: 1000px) {
+  #container #products {
+    width: 100%;
+  }
+}
+#container #products #product_cards_container {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  position: relative;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1rem;
+  grid-auto-rows: 17rem;
+  grid-auto-flow: dense;
+}
+#container #products .product_card {
+  background-color: var(--card-background);
+  border: var(--card-border);
+  color: var(--card-color);
+  padding: 0.75rem;
+  width: 12.625rem;
+  border-radius: 0.5rem;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.75rem;
+  position: relative;
+}
+#container #products .product_card img {
+  width: 10.875rem;
+  height: 10.875rem;
+  object-fit: cover;
+}
+#container #products .product_card span {
+  font-size: 1rem;
+  font-weight: 400;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+}
+#container #products .product_card strong {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+#container #products .product_card button {
+  background: transparent;
+  border: none;
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  cursor: pointer;
+}
+#container #products .product_card button img {
+  height: 1rem;
+  width: 1rem;
+}
+#container form {
+  width: 24rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+#container form fieldset {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+#container form fieldset:has(input[data-invalid]) #file_input {
+  border: var(--input-border-error);
+  color: var(--input-text-error);
+}
+#container form input,
+#container form #file_input {
+  width: inherit;
+  height: 3.5rem;
+  border: var(--input-border);
+  outline: none;
+  border-radius: 999px;
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--input-text);
+  display: flex;
+  align-items: center;
+}
+#container form input::placeholder,
+#container form #file_input::placeholder {
+  color: var(--input-placeholder);
+}
+#container form input[data-invalid],
+#container form #file_input[data-invalid] {
+  border: var(--input-border-error);
+}
+#container form input[data-invalid]::placeholder,
+#container form #file_input[data-invalid]::placeholder {
+  color: var(--input-text-error);
+}
+#container form #file_input {
+  justify-content: space-between;
+}
+#container form #file_input #file_delete {
+  display: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+#container form #file_input #file_delete:hover {
+  filter: brightness(1.5);
+}
+#container form #file_input[data-has-file] #file_delete {
+  display: block;
+}
+#container form .error_message {
+  margin-left: 1rem;
+  color: var(--input-text-error);
+  font-size: 0.95rem;
+}
+#container form input[type=file] {
+  display: none;
+}
+#container form .buttons_container {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+#container form .buttons_container .form_button {
+  width: 100%;
+  height: 3.5rem;
+  border-radius: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--button-color-primary);
+  cursor: pointer;
+}
+#container form .buttons_container .filled {
+  background: var(--button-background);
+  color: var(--button-color);
+  transition: all 0.1s ease-in-out;
+}
+#container form .buttons_container .filled:hover {
+  filter: brightness(1.1);
+}
+#container form .buttons_container .outlined {
+  border: var(--button-boder);
+  color: var(--button-background);
+  transition: all 0.1s ease-in-out;
+}
+#container form .buttons_container .outlined:hover {
+  filter: brightness(1.1);
+}
+#container form #input_file_label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--primary-background);
+  padding: 4rem 2rem;
+}
+footer img {
+  height: 3.5rem;
+}
+footer strong {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--light);
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+footer em {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--light);
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 300;
+}/*# sourceMappingURL=styles.css.map */

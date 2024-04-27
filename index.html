@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="src/styles/reset.css" />
+        <link rel="stylesheet" href="src/styles/styles.css" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alura Geek</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <header>
+                <img src="src/assets/logo.png" alt="Logotipo Alura Geeks" />
+            </header>
+            <main id="container">
+                <section id="products">
+                    <h2>Meus Produtos</h2>
+                    <article id="product_cards_container"></article>
+                </section>
+                <form id="product_form" action="" method="">
+                    <h2>Adicionar Produto</h2>
+                    <fieldset>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Nome..."
+                            minlength="3"
+                            required
+                        />
+                        <span class="error_message"></span>
+                    </fieldset>
+                    <fieldset>
+                        <input
+                            type="text"
+                            name="price"
+                            pattern="[0-9]+([,\.][0-9]+)?"
+                            placeholder="Valor..."
+                            required
+                        />
+                        <span class="error_message"></span>
+                    </fieldset>
+                    <fieldset>
+                        <label id="file_input" for="image">
+                            <span id="input_file_label"
+                                >Selecione uma imagem...</span
+                            >
+                            <button id="file_delete" type="button">
+                                <img
+                                    src="src/assets/icons/trash_icon.svg"
+                                    alt="Icone de Upload"
+                                />
+                            </button>
+                        </label>
+                        <input
+                            id="image"
+                            type="file"
+                            name="image"
+                            accept="image/*"
+                            placeholder="Image..."
+                            required
+                        />
+                        <span class="error_message"></span>
+                    </fieldset>
+                    <div class="buttons_container">
+                        <button class="form_button filled" type="submit">
+                            Guardar
+                        </button>
+                        <button class="form_button outlined" type="reset">
+                            Limpar
+                        </button>
+                    </div>
+                </form>
+            </main>
+            <footer>
+                <img src="src/assets/logo.png" alt="Logo AluraGeeks" />
+                <strong>Desenvolvido por vander.dev</strong>
+                <em>Alura Latam - 2024</em>
+            </footer>
+        </div>
+        <script type="module" src="/src/scripts/main.ts"></script>
+        <script type="module" src="/src/scripts/form/fileInput.ts"></script>
+        <script
+            type="module"
+            src="/src/scripts/form/formValidation.ts"
+        ></script>
+        <script type="module" src="/src/scripts/form/formActions.ts"></script>
+        <script
+            type="module"
+            src="/src/scripts/product/productActions.ts"
+        ></script>
+    </body>
+</html>
