@@ -1,9 +1,9 @@
 <h1 align="center">
-<img width="100%" alt="Octagon Banner" src="https://github.com/vander115/alura-geek/assets/101757815/b725a79c-17b1-429e-b509-8ce68a3dd00f">
+<img width="100%" alt="Alura Geek Banner" src="https://github.com/vander115/alura-geek/assets/101757815/b725a79c-17b1-429e-b509-8ce68a3dd00f">
 </h1>
 
 <h3 align="center">
-  Octagon ⚙️
+  Alura Geek 🕹️
 </h3>
 
 <p align="center">Transforme ideias em realidade mude o mundo com engenharia</p>
